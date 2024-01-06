@@ -1,20 +1,29 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
+import DataSantri from './components/Data Santri';
+import InputSantriBaru from './components/Input Santri Baru';
+
+
+const Drawer = createDrawerNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Drawer.Navigator initialRouteName="Data Santri"
+         screenOptions={{
+          headerStyle: {
+            backgroundColor: '#66CDAA', // Warna latar belakang header
+          },
+          headerTintColor: '#fff', // Warna teks untuk tombol back dan title
+          headerTitleStyle: {
+            fontWeight: 'bold', // Style untuk judul teks
+          },
+        }}
+        >
+        <Drawer.Screen name="Data Santri" component={DataSantri}  />
+        <Drawer.Screen name="Input Santri Baru" component={InputSantriBaru} />
+      </Drawer.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
