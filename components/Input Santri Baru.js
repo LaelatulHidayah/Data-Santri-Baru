@@ -5,11 +5,10 @@ const InputSantriBaru = () => {
   const [idYayasan, setIdYayasan] = useState('');
   const [namaSantri, setNamaSantri] = useState('');
   const [asrama, setAsrama] = useState('');
-  const [namaWali, setNamaWali] = useState('');
 
   const handleSubmit = () => {
     // Proses pengiriman data atau validasi dapat ditambahkan di sini
-    console.log('Data yang diisi:', { idYayasan, namaSantri, asrama, namaWali });
+    console.log('Data yang diisi:', { idYayasan, namaSantri, asrama });
   };
 
   return (
