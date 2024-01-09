@@ -42,7 +42,7 @@ const InputSantriBaru = () => {
         onChangeText={(text) => setNamaWali(text)}
       />
 
-      <Button title="Submit" onPress={handleSubmit} />
+      <Button title="Tambah Data" onPress={handleSubmit} />
     </View>
   );
 };
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   input: {
-    height: 40,
+    height: 30,
     borderColor: 'gray',
     borderWidth: 1,
     marginBottom: 10,
