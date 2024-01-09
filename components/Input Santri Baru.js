@@ -14,42 +14,50 @@ const InputSantriBaru = () => {
 
   return (
     <View style={styles.container}>
-      <Text>ID Yayasan:</Text>
-      <TextInput
-        style={styles.input}
-        value={idYayasan}
-        onChangeText={(text) => setIdYayasan(text)}
-      />
+      <View style={styles.formContainer}>
+        <Text>ID Yayasan:</Text>
+        <TextInput
+          style={styles.input}
+          value={idYayasan}
+          onChangeText={(text) => setIdYayasan(text)}
+        />
 
-      <Text>Nama Santri:</Text>
-      <TextInput
-        style={styles.input}
-        value={namaSantri}
-        onChangeText={(text) => setNamaSantri(text)}
-      />
+        <Text>Nama Santri:</Text>
+        <TextInput
+          style={styles.input}
+          value={namaSantri}
+          onChangeText={(text) => setNamaSantri(text)}
+        />
 
-      <Text>Asrama:</Text>
-      <TextInput
-        style={styles.input}
-        value={asrama}
-        onChangeText={(text) => setAsrama(text)}
-      />
+        <Text>Asrama:</Text>
+        <TextInput
+          style={styles.input}
+          value={asrama}
+          onChangeText={(text) => setAsrama(text)}
+        />
 
-      <Text>Nama Wali:</Text>
-      <TextInput
-        style={styles.input}
-        value={namaWali}
-        onChangeText={(text) => setNamaWali(text)}
-      />
+        <Text>Nama Wali:</Text>
+        <TextInput
+          style={styles.input}
+          value={namaWali}
+          onChangeText={(text) => setNamaWali(text)}
+        />
 
-      <Button title="Tambah Data" onPress={handleSubmit} />
+        <Button title="Tambah Data" onPress={handleSubmit} />
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
     padding: 20,
+  },
+  formContainer: {
+    width: '80%',
   },
   input: {
     height: 30,
