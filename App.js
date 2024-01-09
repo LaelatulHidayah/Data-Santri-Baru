@@ -9,7 +9,7 @@ const Drawer = createDrawerNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Data Santri"
+      <Drawer.Navigator initialRouteName=" Input Data Santri"
          screenOptions={{
           headerStyle: {
             backgroundColor: '#66CDAA', // Warna latar belakang header
@@ -20,8 +20,8 @@ export default function App() {
           },
         }}
         >
-        <Drawer.Screen name="Data Santri" component={DataSantri}  />
         <Drawer.Screen name="Input Santri Baru" component={InputSantriBaru} />
+        <Drawer.Screen name="Data Santri" component={DataSantri}  />
       </Drawer.Navigator>
     </NavigationContainer>
   );
