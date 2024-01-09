@@ -1,14 +1,15 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 
 const InputSantriBaru = () => {
   const [idYayasan, setIdYayasan] = useState('');
   const [namaSantri, setNamaSantri] = useState('');
   const [asrama, setAsrama] = useState('');
+  const [namaWali, setNamaWali] = useState('');
 
   const handleSubmit = () => {
     // Proses pengiriman data atau validasi dapat ditambahkan di sini
-    console.log('Data yang diisi:', { idYayasan, namaSantri, asrama });
+    console.log('Data yang diisi:', { idYayasan, namaSantri, asrama, namaWali });
   };
 
   return (
@@ -59,4 +60,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default InputSantriBaru
+export default InputSantriBaru;
