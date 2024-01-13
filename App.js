@@ -1,7 +1,8 @@
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
+import Home from './components/Home';
 import DataSantri from './components/Data Santri';
-import InputSantriBaru from './components/Input Santri Baru';
+import InputSantriBaru from './components/InputSantriBaru';
 
 
 const Drawer = createDrawerNavigator();
@@ -9,7 +10,7 @@ const Drawer = createDrawerNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName=" Input Data Santri"
+      <Drawer.Navigator initialRouteName=" Home"
          screenOptions={{
           headerStyle: {
             backgroundColor: '#66CDAA', // Warna latar belakang header
@@ -20,6 +21,7 @@ export default function App() {
           },
         }}
         >
+        <Drawer.Screen name="Home" component={Home} />
         <Drawer.Screen name="Input Santri Baru" component={InputSantriBaru} />
         <Drawer.Screen name="Data Santri" component={DataSantri}  />
       </Drawer.Navigator>
