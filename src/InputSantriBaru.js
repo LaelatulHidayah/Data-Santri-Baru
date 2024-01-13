@@ -32,7 +32,7 @@ const addData = () => {
         style={style.input}
       </TextInput>
       <Button>
-        title='TAMBAH'
+        title='TAMBAH DATA'
         onPress={dataAddOn}
       </Button>
     </View>
