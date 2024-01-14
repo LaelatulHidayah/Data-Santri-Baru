@@ -4,31 +4,49 @@ import { db } from '../config';
 import { ref, set } from 'firebase/database';
 
 const addData = () => {
-    const [title, setTitle] = useState('');
-    const [body, setBody] = useState('');
+    const [idYayasan, setIdYayasan] = useState('');
+    const [namaSantri, setNamaSantri] = useState('');
+    const [kamar, setKamar] = useState(''); // Corrected from setAsrama to setKamar
+    const [namaWali, setNamaWali] = useState('');
 
     // Menambah data ke firebase realtime db
     const dataAddOn = () => {
-        set(ref(db, 'posts/newPosts/' + title), {
-            title: title,
-            body: body,
+        set(ref(db, 'posts/' + idYayasan), {
+            idYayasan: idYayasan,
+            namaSantri: namaSantri,
+            kamar: kamar,
+            namaWali: namaWali,
         });
-        setTitle('');
-        setBody('');
+        setIdYayasan('');
+        setNamaSantri('');
+        setKamar(''); // Corrected from setAsrama to setKamar
+        setNamaWali('');
     };
 
     return (
         <View style={styles.container}>
             <TextInput
-                placeholder='Title'
-                value={title}
-                onChangeText={(text) => setTitle(text)}
+                placeholder='ID Yayasan'
+                value={idYayasan}
+                onChangeText={(text) => setIdYayasan(text)}
                 style={styles.input}
             />
             <TextInput
-                placeholder='Body'
-                value={body}
-                onChangeText={(text) => setBody(text)}
+                placeholder='Nama Santri'
+                value={namaSantri}
+                onChangeText={(text) => setNamaSantri(text)}
+                style={styles.input}
+            />
+            <TextInput
+                placeholder='Kamar'
+                value={kamar}
+                onChangeText={(text) => setKamar(text)}
+                style={styles.input}
+            />
+            <TextInput
+                placeholder='Nama Wali'
+                value={namaWali}
+                onChangeText={(text) => setNamaWali(text)}
                 style={styles.input}
             />
             <Button
@@ -44,14 +62,16 @@ export default addData;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
+        padding: 50,
     },
     input: {
+        marginTop: 10,
         borderWidth: 1,
         borderColor: '#000',
-        margin: 10,
-        padding: 10,
+        marginVertical: 5,  // Adjust vertical margin
+        padding: 8,  // Adjust padding
         fontSize: 12,
-        borderRadius: 6
+        borderRadius: 6,
     },
 });
