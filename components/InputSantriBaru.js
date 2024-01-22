@@ -11,7 +11,8 @@ const addData = () => {
 
     // Menambah data ke firebase realtime db
     const dataAddOn = () => {
-        set(ref(db, 'posts/' + idYayasan), {
+        const santriRef = ref(db, 'Data Santri/' + idYayasan); // Update the reference path
+        set(santriRef, {
             idYayasan: idYayasan,
             namaSantri: namaSantri,
             kamar: kamar,
@@ -19,7 +20,7 @@ const addData = () => {
         });
         setIdYayasan('');
         setNamaSantri('');
-        setKamar(''); // Corrected from setAsrama to setKamar
+        setKamar('');
         setNamaWali('');
     };
 

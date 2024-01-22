@@ -1,7 +1,7 @@
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import Home from './components/Home';
-import DataSantri from './components/Data Santri';
+import DataSantri from './components/DataSantri';
 import InputSantriBaru from './components/InputSantriBaru';
 
 
