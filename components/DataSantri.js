@@ -14,6 +14,7 @@ const DataSantri = () => {
         kamar: '',
         namaWali: '',
     });
+    const [searchKeyword, setSearchKeyword] = useState('');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -57,11 +58,26 @@ const DataSantri = () => {
         remove(santriRef);
     };
 
+    const handleSearch = (text) => {
+        setSearchKeyword(text);
+    };
+
+    const filteredData = data.filter((item) =>
+        item.namaSantri.toLowerCase().includes(searchKeyword.toLowerCase())
+    );
+
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Data dari Firebase:</Text>
+            <TextInput
+                style={styles.searchInput}
+                placeholder="Cari Santri..."
+                value={searchKeyword}
+                onChangeText={handleSearch}
+            />
+
+            <Text style={styles.title}></Text>
             <FlatList
-                data={data}
+                data={filteredData}
                 keyExtractor={(item) => (item && item.idYayasan ? item.idYayasan.toString() : '')}
                 renderItem={({ item }) => (
                     <View style={[styles.row, { backgroundColor: 'white', elevation: 5, shadowColor: 'black', shadowOpacity: 0.2, shadowRadius: 5, shadowOffset: { width: 0, height: 4 }}]}>
@@ -104,7 +120,6 @@ const DataSantri = () => {
                         </View>
 
                         {editMode && editData.id === item.id ? (
-                            // Formulir edit
                             <View style={styles.editForm}>
                                 <TextInput
                                     placeholder="ID Yayasan"
@@ -151,8 +166,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginBottom: 10,
-        padding: 10, // Tambahkan padding ke setiap baris data
-        borderRadius: 5, // Tambahkan border radius untuk sudut yang lebih lembut
+        padding: 10,
+        borderRadius: 5,
     },
     dataContainer: {
         flex: 1,
@@ -203,6 +218,14 @@ const styles = StyleSheet.create({
     buttonText: {
         fontSize: 14,
         color: 'white',
+    },
+    searchInput: {
+        height: 40,
+        borderColor: 'gray',
+        borderWidth: 1,
+        marginBottom: 10,
+        paddingLeft: 10,
+        borderRadius: 5,
     },
 });
 
