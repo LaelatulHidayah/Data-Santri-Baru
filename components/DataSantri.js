@@ -14,7 +14,7 @@ const DataSantri = () => {
         kamar: '',
         namaWali: '',
     });
-    const [searchKeyword, setSearchKeyword] = useState('');
+    const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -59,19 +59,20 @@ const DataSantri = () => {
     };
 
     const handleSearch = (text) => {
-        setSearchKeyword(text);
+        setSearchTerm(text);
     };
 
     const filteredData = data.filter((item) =>
-        item.namaSantri.toLowerCase().includes(searchKeyword.toLowerCase())
+        item.namaSantri.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        item.idYayasan.toString().includes(searchTerm.toLowerCase())
     );
 
     return (
         <View style={styles.container}>
             <TextInput
                 style={styles.searchInput}
-                placeholder="Cari Santri..."
-                value={searchKeyword}
+                placeholder="Cari Santri atau ID..."
+                value={searchTerm}
                 onChangeText={handleSearch}
             />
 
